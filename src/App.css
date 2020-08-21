@@ -36,3 +36,13 @@
     transform: rotate(360deg);
   }
 }
+
+.label {
+  color: green;
+  font-size: 2rem;
+  padding-bottom: 5%;
+}
+
+.modal_body {
+  font-size: 1.3rem;
+}

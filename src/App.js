@@ -95,11 +95,14 @@ class App extends Component {
 
     return (
       <div className="App">
-        <h1>Tip Calculator</h1>
+        <h1 style={{ paddingBottom: "3%" }}>
+          <strong>Tip Calculator</strong>
+        </h1>
+
         <form>
-          <label>
+          <label className="label">
             What is the total of your bill? <br />
-            $
+            <strong>$</strong>
             <input
               type="number"
               onChange={this.changeHandler}
@@ -109,7 +112,7 @@ class App extends Component {
           </label>
           <br />
 
-          <label>
+          <label className="label">
             How was your service? <br />
             <select
               value={this.state.tip_percent}
@@ -127,7 +130,7 @@ class App extends Component {
           </label>
           <br />
 
-          <label>
+          <label className="label">
             How many people are sharing the bill? <br />
             <input
               type="number"
@@ -140,16 +143,27 @@ class App extends Component {
           <button onClick={this.calculateTip}>Calculate tip</button>
         </form>
         <MDBModal isOpen={this.state.isOpen}>
-          <MDBModalHeader>
-            Success! <MDBIcon icon="times" onClick={this.clickHandler} />
+          <MDBModalHeader className="modal_header" toggle={this.clickHandler}>
+            Success!
+            {/* <MDBIcon icon="times" onClick={this.clickHandler} /> */}
           </MDBModalHeader>
-          <MDBModalBody>
-            Here is your tip amount: ${total_tip}
+          <MDBModalBody className="modal_body">
+            Here is your tip amount:
             <br />
-            Here is your total bill with Tip: ${final_total} <br />
-            Here is the total tip per person: ${tip_per_person}
+            <strong>${total_tip}</strong>
             <br />
-            Here is your total per person (includes tip): ${bill_per_person}
+            Here is your total bill with Tip:
+            <br />
+            <strong>
+              ${final_total} <br />
+            </strong>
+            Here is the total tip per person:
+            <br />
+            <strong>${tip_per_person}</strong>
+            <br />
+            Here is your total per person (includes tip):
+            <br />
+            <strong>${bill_per_person}</strong>
           </MDBModalBody>
         </MDBModal>
       </div>
