@@ -14,6 +14,7 @@ class App extends Component {
     final_total: 0,
     total_tip: 0,
     tip_per_person: 0,
+    bill_per_person: 0,
   };
 
   calculateTip = (evt) => {
@@ -48,12 +49,16 @@ class App extends Component {
     let personal_tip = tip_amount / bill_shares;
     personal_tip = Math.round(personal_tip * 100) / 100;
 
+    let personal_total = total / bill_shares;
+    personal_total = Math.round(personal_total * 100) / 100;
+
     this.setState({
       isCalculated: true,
       isOpen: !this.state.isOpen,
       total_tip: tip_amount,
       final_total: total,
       tip_per_person: personal_tip,
+      bill_per_person: personal_total,
     });
     console.log(this.state.final_total);
   };
@@ -81,7 +86,12 @@ class App extends Component {
   render() {
     // list of possible tip percentages
     let select_values = [0, 0.35, 0.3, 0.25, 0.2, 0.15];
-    let { total_tip, final_total, tip_per_person } = this.state;
+    let {
+      total_tip,
+      final_total,
+      tip_per_person,
+      bill_per_person,
+    } = this.state;
 
     return (
       <div className="App">
@@ -139,6 +149,7 @@ class App extends Component {
             Here is your total bill with Tip: ${final_total} <br />
             Here is the total tip per person: ${tip_per_person}
             <br />
+            Here is your total per person (includes tip): ${bill_per_person}
           </MDBModalBody>
         </MDBModal>
       </div>
