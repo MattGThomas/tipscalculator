@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { MDBModal, MDBModalBody, MDBModalHeader, MDBIcon } from "mdbreact";
+import { MDBModal, MDBModalBody, MDBModalHeader } from "mdbreact";
 
 import "./App.css";
 
@@ -118,7 +118,7 @@ class App extends Component {
               value={this.state.tip_percent}
               onChange={this.selectHandler}
             >
-              <option selected value={select_values[0]}>
+              <option defaultValue={select_values[0]}>
                 - Please Select A Value -
               </option>
               <option value={select_values[1]}>Amazing - 35%</option>
